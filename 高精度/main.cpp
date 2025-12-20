@@ -124,31 +124,30 @@
 using namespace std;
 
 const int N = 1e6 + 10;
-int arr1[N], arr2[N], arr3[N];
-string s1, s2;
-int l1, l2, l3;
+int arr1[N], a2, arr3[N];
+string s1;
+int l1,l3;
 
-void div(int* arr1, int* arr2)
+void div(int* arr1)
 {
-	int a2 = arr2[0];
-	for (int i = 1; i < l2; i++)
+	long long t = 0;
+	for (int i = l1 - 1; i >= 0; i--)
 	{
-		a2 += arr2[i] * (10 ^ i);
+		t = t * 10 + arr1[i];
+		arr3[i] = t / a2;
+		t %= a2;
 	}
+	while (l3 > 1 && arr3[l3 - 1] == 0) l3--;
 }
 
 int main()
 {
-	cin >> s1 >> s2;
-	l1 = s1.size(), l2 = s2.size();
-	l3 = max(l1, l2);
-	for (int i = l1 - 1; i >= 0; i--) arr1[l1 - i - 1] = s1[i] - '0';
-	for (int i = l2 - 1; i >= 0; i--) arr2[l2 - i - 1] = s2[i] - '0';
-	
-	div(arr1, arr2);
-	//for (int i = 0)
-
-
-
+	cin >> s1 >> a2;
+	l1 = s1.size();
+	for (int i = 0; i < l1; i++) arr1[l1 - i - 1] = s1[i] - '0';
+	l3 = l1;
+	div(arr1);
+	for (int i = l3 - 1; i >= 0; i--) cout << arr3[i];
 	return 0;
 }
+
