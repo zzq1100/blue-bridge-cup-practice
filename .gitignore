@@ -23,6 +23,7 @@ bin-release/
 *.db
 *.ipch
 *.json
+*.slnx
 Debug/
 .vs
 Release/
