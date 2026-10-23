@@ -39,7 +39,7 @@ int main()
         }
     }
 
-    while (ret[lret - 1] == 0 && lret > 0) lret--;
+    while (ret[lret - 1] == 0 && lret > 1) lret--;
 
     for (int i = lret - 1; i >= 0; i--) cout << ret[i];
 
